@@ -28,8 +28,10 @@
                     </Picker>
                     <Label Text="Добавьте описание: "/>
                     <Editor HeightRequest="100" VerticalOptions="Start" x:Name="EditorPinDesc"/>
-                    <Button Text="Отменить" VerticalOptions="End" HorizontalOptions="End" Clicked="Button_CancelAddingPin_Clicked"/>
-                    <Button Text="Добавить маркер" VerticalOptions="End" HorizontalOptions="Start" Clicked="Button_ConfirmAddingPin_Clicked"/>
+                    <Grid>
+                        <Button Text="Отменить" VerticalOptions="End" HorizontalOptions="End" Clicked="Button_CancelAddingPin_Clicked" Grid.Row="0" Grid.Column="0"/>
+                        <Button Text="Добавить маркер" VerticalOptions="End" HorizontalOptions="Start" Clicked="Button_ConfirmAddingPin_Clicked" Grid.Row="0" Grid.Column="0"/>
+                    </Grid>
                 </StackLayout>
             </Frame>
         </StackLayout>
