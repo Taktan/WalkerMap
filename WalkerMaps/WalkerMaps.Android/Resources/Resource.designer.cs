@@ -1350,44 +1350,44 @@ namespace WalkerMaps.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0a0057
-			public const int abc_background_cache_hint_selector_material_dark = 2131361879;
-			
 			// aapt resource value: 0x7f0a0058
-			public const int abc_background_cache_hint_selector_material_light = 2131361880;
+			public const int abc_background_cache_hint_selector_material_dark = 2131361880;
 			
 			// aapt resource value: 0x7f0a0059
-			public const int abc_btn_colored_borderless_text_material = 2131361881;
+			public const int abc_background_cache_hint_selector_material_light = 2131361881;
 			
 			// aapt resource value: 0x7f0a005a
-			public const int abc_btn_colored_text_material = 2131361882;
+			public const int abc_btn_colored_borderless_text_material = 2131361882;
 			
 			// aapt resource value: 0x7f0a005b
-			public const int abc_color_highlight_material = 2131361883;
+			public const int abc_btn_colored_text_material = 2131361883;
 			
 			// aapt resource value: 0x7f0a005c
-			public const int abc_hint_foreground_material_dark = 2131361884;
+			public const int abc_color_highlight_material = 2131361884;
 			
 			// aapt resource value: 0x7f0a005d
-			public const int abc_hint_foreground_material_light = 2131361885;
+			public const int abc_hint_foreground_material_dark = 2131361885;
+			
+			// aapt resource value: 0x7f0a005e
+			public const int abc_hint_foreground_material_light = 2131361886;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int abc_input_method_navigation_guard = 2131361804;
 			
-			// aapt resource value: 0x7f0a005e
-			public const int abc_primary_text_disable_only_material_dark = 2131361886;
-			
 			// aapt resource value: 0x7f0a005f
-			public const int abc_primary_text_disable_only_material_light = 2131361887;
+			public const int abc_primary_text_disable_only_material_dark = 2131361887;
 			
 			// aapt resource value: 0x7f0a0060
-			public const int abc_primary_text_material_dark = 2131361888;
+			public const int abc_primary_text_disable_only_material_light = 2131361888;
 			
 			// aapt resource value: 0x7f0a0061
-			public const int abc_primary_text_material_light = 2131361889;
+			public const int abc_primary_text_material_dark = 2131361889;
 			
 			// aapt resource value: 0x7f0a0062
-			public const int abc_search_url_text = 2131361890;
+			public const int abc_primary_text_material_light = 2131361890;
+			
+			// aapt resource value: 0x7f0a0063
+			public const int abc_search_url_text = 2131361891;
 			
 			// aapt resource value: 0x7f0a000d
 			public const int abc_search_url_text_normal = 2131361805;
@@ -1398,29 +1398,29 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0a000f
 			public const int abc_search_url_text_selected = 2131361807;
 			
-			// aapt resource value: 0x7f0a0063
-			public const int abc_secondary_text_material_dark = 2131361891;
-			
 			// aapt resource value: 0x7f0a0064
-			public const int abc_secondary_text_material_light = 2131361892;
+			public const int abc_secondary_text_material_dark = 2131361892;
 			
 			// aapt resource value: 0x7f0a0065
-			public const int abc_tint_btn_checkable = 2131361893;
+			public const int abc_secondary_text_material_light = 2131361893;
 			
 			// aapt resource value: 0x7f0a0066
-			public const int abc_tint_default = 2131361894;
+			public const int abc_tint_btn_checkable = 2131361894;
 			
 			// aapt resource value: 0x7f0a0067
-			public const int abc_tint_edittext = 2131361895;
+			public const int abc_tint_default = 2131361895;
 			
 			// aapt resource value: 0x7f0a0068
-			public const int abc_tint_seek_thumb = 2131361896;
+			public const int abc_tint_edittext = 2131361896;
 			
 			// aapt resource value: 0x7f0a0069
-			public const int abc_tint_spinner = 2131361897;
+			public const int abc_tint_seek_thumb = 2131361897;
 			
 			// aapt resource value: 0x7f0a006a
-			public const int abc_tint_switch_track = 2131361898;
+			public const int abc_tint_spinner = 2131361898;
+			
+			// aapt resource value: 0x7f0a006b
+			public const int abc_tint_switch_track = 2131361899;
 			
 			// aapt resource value: 0x7f0a0010
 			public const int accent_material_dark = 2131361808;
@@ -1479,14 +1479,17 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0a0056
 			public const int colorAccent = 2131361878;
 			
+			// aapt resource value: 0x7f0a0057
+			public const int colorGolob = 2131361879;
+			
 			// aapt resource value: 0x7f0a0054
 			public const int colorPrimary = 2131361876;
 			
 			// aapt resource value: 0x7f0a0055
 			public const int colorPrimaryDark = 2131361877;
 			
-			// aapt resource value: 0x7f0a006b
-			public const int common_google_signin_btn_text_dark = 2131361899;
+			// aapt resource value: 0x7f0a006c
+			public const int common_google_signin_btn_text_dark = 2131361900;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int common_google_signin_btn_text_dark_default = 2131361792;
@@ -1500,8 +1503,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0a0003
 			public const int common_google_signin_btn_text_dark_pressed = 2131361795;
 			
-			// aapt resource value: 0x7f0a006c
-			public const int common_google_signin_btn_text_light = 2131361900;
+			// aapt resource value: 0x7f0a006d
+			public const int common_google_signin_btn_text_light = 2131361901;
 			
 			// aapt resource value: 0x7f0a0004
 			public const int common_google_signin_btn_text_light_default = 2131361796;
@@ -1515,14 +1518,14 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0a0007
 			public const int common_google_signin_btn_text_light_pressed = 2131361799;
 			
-			// aapt resource value: 0x7f0a006d
-			public const int common_google_signin_btn_tint = 2131361901;
+			// aapt resource value: 0x7f0a006e
+			public const int common_google_signin_btn_tint = 2131361902;
 			
 			// aapt resource value: 0x7f0a0048
 			public const int design_bottom_navigation_shadow_color = 2131361864;
 			
-			// aapt resource value: 0x7f0a006e
-			public const int design_error = 2131361902;
+			// aapt resource value: 0x7f0a006f
+			public const int design_error = 2131361903;
 			
 			// aapt resource value: 0x7f0a0049
 			public const int design_fab_shadow_end_color = 2131361865;
@@ -1548,8 +1551,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0a0050
 			public const int design_snackbar_background_color = 2131361872;
 			
-			// aapt resource value: 0x7f0a006f
-			public const int design_tint_password_toggle = 2131361903;
+			// aapt resource value: 0x7f0a0070
+			public const int design_tint_password_toggle = 2131361904;
 			
 			// aapt resource value: 0x7f0a001e
 			public const int dim_foreground_disabled_material_dark = 2131361822;
@@ -1674,11 +1677,11 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0a0042
 			public const int switch_thumb_disabled_material_light = 2131361858;
 			
-			// aapt resource value: 0x7f0a0070
-			public const int switch_thumb_material_dark = 2131361904;
-			
 			// aapt resource value: 0x7f0a0071
-			public const int switch_thumb_material_light = 2131361905;
+			public const int switch_thumb_material_dark = 2131361905;
+			
+			// aapt resource value: 0x7f0a0072
+			public const int switch_thumb_material_light = 2131361906;
 			
 			// aapt resource value: 0x7f0a0043
 			public const int switch_thumb_normal_material_dark = 2131361859;
@@ -3228,8 +3231,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c003f
 			public const int FUNCTION = 2131492927;
 			
-			// aapt resource value: 0x7f0c00d5
-			public const int InfoWindowButton = 2131493077;
+			// aapt resource value: 0x7f0c00d6
+			public const int InfoWindowButton = 2131493078;
 			
 			// aapt resource value: 0x7f0c00a4
 			public const int InfoWindowSubtitle = 2131493028;
@@ -3246,8 +3249,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0042
 			public const int SYM = 2131492930;
 			
-			// aapt resource value: 0x7f0c00c2
-			public const int action0 = 2131493058;
+			// aapt resource value: 0x7f0c00c3
+			public const int action0 = 2131493059;
 			
 			// aapt resource value: 0x7f0c0086
 			public const int action_bar = 2131492998;
@@ -3270,17 +3273,17 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0064
 			public const int action_bar_title = 2131492964;
 			
-			// aapt resource value: 0x7f0c00bf
-			public const int action_container = 2131493055;
+			// aapt resource value: 0x7f0c00c0
+			public const int action_container = 2131493056;
 			
 			// aapt resource value: 0x7f0c0087
 			public const int action_context_bar = 2131492999;
 			
-			// aapt resource value: 0x7f0c00c6
-			public const int action_divider = 2131493062;
+			// aapt resource value: 0x7f0c00c7
+			public const int action_divider = 2131493063;
 			
-			// aapt resource value: 0x7f0c00c0
-			public const int action_image = 2131493056;
+			// aapt resource value: 0x7f0c00c1
+			public const int action_image = 2131493057;
 			
 			// aapt resource value: 0x7f0c0003
 			public const int action_menu_divider = 2131492867;
@@ -3297,11 +3300,11 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0066
 			public const int action_mode_close_button = 2131492966;
 			
-			// aapt resource value: 0x7f0c00c1
-			public const int action_text = 2131493057;
+			// aapt resource value: 0x7f0c00c2
+			public const int action_text = 2131493058;
 			
-			// aapt resource value: 0x7f0c00cf
-			public const int actions = 2131493071;
+			// aapt resource value: 0x7f0c00d0
+			public const int actions = 2131493072;
 			
 			// aapt resource value: 0x7f0c0067
 			public const int activity_chooser_view_content = 2131492967;
@@ -3339,11 +3342,14 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0048
 			public const int bottom = 2131492936;
 			
+			// aapt resource value: 0x7f0c00a5
+			public const int button1 = 2131493029;
+			
 			// aapt resource value: 0x7f0c006d
 			public const int buttonPanel = 2131492973;
 			
-			// aapt resource value: 0x7f0c00c3
-			public const int cancel_action = 2131493059;
+			// aapt resource value: 0x7f0c00c4
+			public const int cancel_action = 2131493060;
 			
 			// aapt resource value: 0x7f0c004f
 			public const int center = 2131492943;
@@ -3357,8 +3363,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c007d
 			public const int checkbox = 2131492989;
 			
-			// aapt resource value: 0x7f0c00cb
-			public const int chronometer = 2131493067;
+			// aapt resource value: 0x7f0c00cc
+			public const int chronometer = 2131493068;
 			
 			// aapt resource value: 0x7f0c0058
 			public const int clip_horizontal = 2131492952;
@@ -3417,8 +3423,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c003b
 			public const int end = 2131492923;
 			
-			// aapt resource value: 0x7f0c00d1
-			public const int end_padder = 2131493073;
+			// aapt resource value: 0x7f0c00d2
+			public const int end_padder = 2131493074;
 			
 			// aapt resource value: 0x7f0c004a
 			public const int enterAlways = 2131492938;
@@ -3465,8 +3471,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c006c
 			public const int icon = 2131492972;
 			
-			// aapt resource value: 0x7f0c00d0
-			public const int icon_group = 2131493072;
+			// aapt resource value: 0x7f0c00d1
+			public const int icon_group = 2131493073;
 			
 			// aapt resource value: 0x7f0c0024
 			public const int icon_only = 2131492900;
@@ -3477,8 +3483,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0069
 			public const int image = 2131492969;
 			
-			// aapt resource value: 0x7f0c00cc
-			public const int info = 2131493068;
+			// aapt resource value: 0x7f0c00cd
+			public const int info = 2131493069;
 			
 			// aapt resource value: 0x7f0c0063
 			public const int italic = 2131492963;
@@ -3507,14 +3513,14 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c006b
 			public const int list_item = 2131492971;
 			
-			// aapt resource value: 0x7f0c00d7
-			public const int masked = 2131493079;
+			// aapt resource value: 0x7f0c00d8
+			public const int masked = 2131493080;
 			
-			// aapt resource value: 0x7f0c00c5
-			public const int media_actions = 2131493061;
+			// aapt resource value: 0x7f0c00c6
+			public const int media_actions = 2131493062;
 			
-			// aapt resource value: 0x7f0c00d4
-			public const int message = 2131493076;
+			// aapt resource value: 0x7f0c00d5
+			public const int message = 2131493077;
 			
 			// aapt resource value: 0x7f0c003c
 			public const int middle = 2131492924;
@@ -3522,80 +3528,80 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c005d
 			public const int mini = 2131492957;
 			
-			// aapt resource value: 0x7f0c00b1
-			public const int mr_art = 2131493041;
-			
-			// aapt resource value: 0x7f0c00a6
-			public const int mr_chooser_list = 2131493030;
-			
-			// aapt resource value: 0x7f0c00a9
-			public const int mr_chooser_route_desc = 2131493033;
+			// aapt resource value: 0x7f0c00b2
+			public const int mr_art = 2131493042;
 			
 			// aapt resource value: 0x7f0c00a7
-			public const int mr_chooser_route_icon = 2131493031;
-			
-			// aapt resource value: 0x7f0c00a8
-			public const int mr_chooser_route_name = 2131493032;
-			
-			// aapt resource value: 0x7f0c00a5
-			public const int mr_chooser_title = 2131493029;
-			
-			// aapt resource value: 0x7f0c00ae
-			public const int mr_close = 2131493038;
-			
-			// aapt resource value: 0x7f0c00b4
-			public const int mr_control_divider = 2131493044;
-			
-			// aapt resource value: 0x7f0c00ba
-			public const int mr_control_playback_ctrl = 2131493050;
-			
-			// aapt resource value: 0x7f0c00bd
-			public const int mr_control_subtitle = 2131493053;
-			
-			// aapt resource value: 0x7f0c00bc
-			public const int mr_control_title = 2131493052;
-			
-			// aapt resource value: 0x7f0c00bb
-			public const int mr_control_title_container = 2131493051;
-			
-			// aapt resource value: 0x7f0c00af
-			public const int mr_custom_control = 2131493039;
-			
-			// aapt resource value: 0x7f0c00b0
-			public const int mr_default_control = 2131493040;
-			
-			// aapt resource value: 0x7f0c00ab
-			public const int mr_dialog_area = 2131493035;
+			public const int mr_chooser_list = 2131493031;
 			
 			// aapt resource value: 0x7f0c00aa
-			public const int mr_expandable_area = 2131493034;
+			public const int mr_chooser_route_desc = 2131493034;
 			
-			// aapt resource value: 0x7f0c00be
-			public const int mr_group_expand_collapse = 2131493054;
+			// aapt resource value: 0x7f0c00a8
+			public const int mr_chooser_route_icon = 2131493032;
 			
-			// aapt resource value: 0x7f0c00b2
-			public const int mr_media_main_control = 2131493042;
+			// aapt resource value: 0x7f0c00a9
+			public const int mr_chooser_route_name = 2131493033;
 			
-			// aapt resource value: 0x7f0c00ad
-			public const int mr_name = 2131493037;
+			// aapt resource value: 0x7f0c00a6
+			public const int mr_chooser_title = 2131493030;
 			
-			// aapt resource value: 0x7f0c00b3
-			public const int mr_playback_control = 2131493043;
-			
-			// aapt resource value: 0x7f0c00ac
-			public const int mr_title_bar = 2131493036;
+			// aapt resource value: 0x7f0c00af
+			public const int mr_close = 2131493039;
 			
 			// aapt resource value: 0x7f0c00b5
-			public const int mr_volume_control = 2131493045;
+			public const int mr_control_divider = 2131493045;
+			
+			// aapt resource value: 0x7f0c00bb
+			public const int mr_control_playback_ctrl = 2131493051;
+			
+			// aapt resource value: 0x7f0c00be
+			public const int mr_control_subtitle = 2131493054;
+			
+			// aapt resource value: 0x7f0c00bd
+			public const int mr_control_title = 2131493053;
+			
+			// aapt resource value: 0x7f0c00bc
+			public const int mr_control_title_container = 2131493052;
+			
+			// aapt resource value: 0x7f0c00b0
+			public const int mr_custom_control = 2131493040;
+			
+			// aapt resource value: 0x7f0c00b1
+			public const int mr_default_control = 2131493041;
+			
+			// aapt resource value: 0x7f0c00ac
+			public const int mr_dialog_area = 2131493036;
+			
+			// aapt resource value: 0x7f0c00ab
+			public const int mr_expandable_area = 2131493035;
+			
+			// aapt resource value: 0x7f0c00bf
+			public const int mr_group_expand_collapse = 2131493055;
+			
+			// aapt resource value: 0x7f0c00b3
+			public const int mr_media_main_control = 2131493043;
+			
+			// aapt resource value: 0x7f0c00ae
+			public const int mr_name = 2131493038;
+			
+			// aapt resource value: 0x7f0c00b4
+			public const int mr_playback_control = 2131493044;
+			
+			// aapt resource value: 0x7f0c00ad
+			public const int mr_title_bar = 2131493037;
 			
 			// aapt resource value: 0x7f0c00b6
-			public const int mr_volume_group_list = 2131493046;
+			public const int mr_volume_control = 2131493046;
 			
-			// aapt resource value: 0x7f0c00b8
-			public const int mr_volume_item_icon = 2131493048;
+			// aapt resource value: 0x7f0c00b7
+			public const int mr_volume_group_list = 2131493047;
 			
 			// aapt resource value: 0x7f0c00b9
-			public const int mr_volume_slider = 2131493049;
+			public const int mr_volume_item_icon = 2131493049;
+			
+			// aapt resource value: 0x7f0c00ba
+			public const int mr_volume_slider = 2131493050;
 			
 			// aapt resource value: 0x7f0c0033
 			public const int multiply = 2131492915;
@@ -3612,14 +3618,14 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c001f
 			public const int normal = 2131492895;
 			
-			// aapt resource value: 0x7f0c00ce
-			public const int notification_background = 2131493070;
+			// aapt resource value: 0x7f0c00cf
+			public const int notification_background = 2131493071;
+			
+			// aapt resource value: 0x7f0c00c9
+			public const int notification_main_column = 2131493065;
 			
 			// aapt resource value: 0x7f0c00c8
-			public const int notification_main_column = 2131493064;
-			
-			// aapt resource value: 0x7f0c00c7
-			public const int notification_main_column_container = 2131493063;
+			public const int notification_main_column_container = 2131493064;
 			
 			// aapt resource value: 0x7f0c0056
 			public const int parallax = 2131492950;
@@ -3645,11 +3651,11 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0054
 			public const int right = 2131492948;
 			
-			// aapt resource value: 0x7f0c00cd
-			public const int right_icon = 2131493069;
+			// aapt resource value: 0x7f0c00ce
+			public const int right_icon = 2131493070;
 			
-			// aapt resource value: 0x7f0c00c9
-			public const int right_side = 2131493065;
+			// aapt resource value: 0x7f0c00ca
+			public const int right_side = 2131493066;
 			
 			// aapt resource value: 0x7f0c0020
 			public const int satellite = 2131492896;
@@ -3726,8 +3732,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0030
 			public const int showTitle = 2131492912;
 			
-			// aapt resource value: 0x7f0c00d2
-			public const int sliding_tabs = 2131493074;
+			// aapt resource value: 0x7f0c00d3
+			public const int sliding_tabs = 2131493075;
 			
 			// aapt resource value: 0x7f0c0095
 			public const int smallLabel = 2131493013;
@@ -3762,8 +3768,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0055
 			public const int start = 2131492949;
 			
-			// aapt resource value: 0x7f0c00c4
-			public const int status_bar_latest_event_content = 2131493060;
+			// aapt resource value: 0x7f0c00c5
+			public const int status_bar_latest_event_content = 2131493061;
 			
 			// aapt resource value: 0x7f0c0080
 			public const int submenuarrow = 2131492992;
@@ -3801,8 +3807,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0015
 			public const int textinput_error = 2131492885;
 			
-			// aapt resource value: 0x7f0c00ca
-			public const int time = 2131493066;
+			// aapt resource value: 0x7f0c00cb
+			public const int time = 2131493067;
 			
 			// aapt resource value: 0x7f0c001c
 			public const int title = 2131492892;
@@ -3813,8 +3819,8 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0079
 			public const int title_template = 2131492985;
 			
-			// aapt resource value: 0x7f0c00d3
-			public const int toolbar = 2131493075;
+			// aapt resource value: 0x7f0c00d4
+			public const int toolbar = 2131493076;
 			
 			// aapt resource value: 0x7f0c0049
 			public const int top = 2131492937;
@@ -3852,11 +3858,11 @@ namespace WalkerMaps.Droid
 			// aapt resource value: 0x7f0c0016
 			public const int view_offset_helper = 2131492886;
 			
-			// aapt resource value: 0x7f0c00d6
-			public const int visible = 2131493078;
+			// aapt resource value: 0x7f0c00d7
+			public const int visible = 2131493079;
 			
-			// aapt resource value: 0x7f0c00b7
-			public const int volume_item_container = 2131493047;
+			// aapt resource value: 0x7f0c00b8
+			public const int volume_item_container = 2131493048;
 			
 			// aapt resource value: 0x7f0c0026
 			public const int wide = 2131492902;

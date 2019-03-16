@@ -21,6 +21,26 @@
             android:layout_height="wrap_content"
             android:text="InfoWindowSubtitle"
             android:textColor="@android:color/black" />
+		<LinearLayout android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+			<Button
+				android:text="-"
+				android:textColor="@android:color/white"
+				android:background="@color/colorGolob"
+				android:layout_width="50px"
+				android:layout_height="50px"
+				android:id="@+id/button1"
+			/>
+			<Button
+				android:text="+"
+				android:textColor="@android:color/white"
+				android:background="@color/colorGolob"
+				android:layout_width="50px"
+				android:layout_height="50px"
+				android:id="@+id/button1"
+			/>
+	</LinearLayout>
     </LinearLayout>
 	
 </LinearLayout>
