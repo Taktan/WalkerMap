@@ -63,7 +63,7 @@ namespace WalkerMaps
                 }
 
                 NpgsqlCommand command = connection.CreateCommand();
-                command.CommandText = string.Format("SELECT name, ST_AsEWKT(point), type, ST_DistanceSphere(point, ST_GeomFromEWKT('SRID=4326;POINT({0} {1})')) AS dist FROM markers WHERE ST_DWithin(point, ST_GeomFromEWKT('SRID=4326;POINT({0} {1})'), 30000, true); ", lng, lat);
+                command.CommandText = string.Format("SELECT name, ST_AsEWKT(point), type, rating, ST_DistanceSphere(point, ST_GeomFromEWKT('SRID=4326;POINT({0} {1})')) AS dist FROM markers WHERE ST_DWithin(point, ST_GeomFromEWKT('SRID=4326;POINT({0} {1})'), 30000, true); ", lng, lat);
                 try
                 {
                     NpgsqlDataReader reader = command.ExecuteReader();
@@ -78,15 +78,18 @@ namespace WalkerMaps
                         double Lng_ = Convert.ToDouble(coor[0], new NumberFormatInfo());
                         int objectType = -1;
                         int.TryParse(reader[1].ToString(), out objectType);
+                        double objectRating = 0;
+                        double.TryParse(reader[3].ToString(), out objectRating);
 
                         var pin = new CustomPin
                         {
                             Type = PinType.Place,
                             Position = new Position(Lat_, Lng_),
                             Label = reader[0].ToString(),
-                            Address = "Адрес",
+                            Address = "Рейтинг: " + objectRating,
                             Id = "object",
                             ObjectType = objectType,
+                            ObjectRating = objectRating,
                             Url = ""
                         };
 
