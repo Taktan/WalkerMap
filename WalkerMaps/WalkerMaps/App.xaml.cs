@@ -11,7 +11,7 @@ namespace WalkerMaps
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new splashPage();
         }
 
         protected override void OnStart()
