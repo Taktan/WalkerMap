@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6F9FF47E-B2F8-4174-8FF2-DA27E3FAA6D2}</ProjectGuid>
+    <ProjectGuid>{707D8A27-FFE3-46C0-83FD-BB8415944E11}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
     <OutputType>Library</OutputType>
@@ -93,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WalkerMaps\WalkerMaps.csproj">
-      <Project>{11FBD332-1BBF-4E3F-8F0A-0601C66D5FF8}</Project>
+      <Project>{D29E5961-2A3F-4FE7-9CAC-BD5045C867CC}</Project>
       <Name>WalkerMaps</Name>
     </ProjectReference>
   </ItemGroup>
