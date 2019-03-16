@@ -16,6 +16,7 @@ namespace WalkerMaps.Droid
     class CustomMapRenderer : MapRenderer, GoogleMap.IInfoWindowAdapter
     {
         List<CustomPin> customPins;
+        CustomMap formsMap;
 
         public CustomMapRenderer(Context context) : base(context)
         {
@@ -32,7 +33,7 @@ namespace WalkerMaps.Droid
 
             if (e.NewElement != null)
             {
-                var formsMap = (CustomMap)e.NewElement;
+                formsMap = (CustomMap)e.NewElement;
                 customPins = formsMap.CustomPins;
                 bool MyLocationEnabled = formsMap.MyLocationEnabled;
                 Control.GetMapAsync(this);
@@ -44,6 +45,9 @@ namespace WalkerMaps.Droid
             base.OnMapReady(map);
 
             NativeMap.InfoWindowClick += OnInfoWindowClick;
+            NativeMap.CameraChange += OnCameraChange;
+            NativeMap.MapClick += OnMapClick;
+
             NativeMap.SetInfoWindowAdapter(this);
             NativeMap.MyLocationEnabled = MyLocationEnabled;
             NativeMap.UiSettings.MyLocationButtonEnabled = true;
@@ -67,7 +71,7 @@ namespace WalkerMaps.Droid
             marker.SetPosition(new LatLng(pin.Position.Latitude, pin.Position.Longitude));
             marker.SetTitle(pin.Label);
             marker.SetSnippet(pin.Address);
-            marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
+            //marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
             return marker;
         }
 
@@ -101,7 +105,7 @@ namespace WalkerMaps.Droid
                     throw new Exception("Custom pin not found");
                 }
 
-                if (customPin.Id.ToString() == "Xamarin")
+                if (customPin.Id.ToString() == "object")
                 {
                     view = inflater.Inflate(Resource.Layout.XamarinMapInfoWindow, null);
                 }
@@ -143,6 +147,21 @@ namespace WalkerMaps.Droid
                 }
             }
             return null;
+        }
+
+        private void OnCameraChange(object sender, GoogleMap.CameraChangeEventArgs e)
+        {
+            if (formsMap != null && formsMap.VisibleRegion != null)
+            {
+                formsMap.SendCameraChanged(this, e);
+            }
+        }
+        private void OnMapClick(object sender, GoogleMap.MapClickEventArgs e)
+        {
+            if (formsMap != null)
+            {
+                formsMap.SendMapClick(this, new Position(e.Point.Latitude, e.Point.Longitude));
+            }
         }
     }
 }
