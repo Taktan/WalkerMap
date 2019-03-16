@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -19,24 +17,26 @@ namespace WalkerMaps
         public MainPage()
         {
             InitializeComponent();
-
+            BuildDesign();
             BuildMap();
+        }
+
+        private void BuildDesign()
+        {
+            PageUp.TranslationY = -1000;
         }
 
         private void BuildMap()
         {
             customMap.CustomPins = new List<CustomPin>();
             customMap.CameraChanged += CameraChanged;
+            customMap.MapClicked += MapClicked;
         }
 
         private void CameraChanged(object Sender, EventArgs e)
         {
             if (customMap.VisibleRegion.Radius.Kilometers < 25)
             {
-                Debug.WriteLine(customMap.CustomPins.Count);
-                Debug.WriteLine(customMap.CustomPins.Count);
-                Debug.WriteLine(customMap.CustomPins.Count);
-                Debug.WriteLine(customMap.CustomPins.Count);
                 Debug.WriteLine(customMap.CustomPins.Count);
 
                 LoadPinsFromDataBase(customMap.VisibleRegion.Center.Latitude, customMap.VisibleRegion.Center.Longitude);
@@ -123,7 +123,6 @@ namespace WalkerMaps
 
         //}
 
-
         async protected override void OnAppearing()
         {
             var status = await Utils.CheckPermissions(Permission.Location);
@@ -178,7 +177,30 @@ namespace WalkerMaps
             }
         }
 
-        private void Button_Released(object sender, EventArgs e)
+        bool PinnableState;
+        private void ButtonAddPin_Clicked(object sender, EventArgs e)
+        {
+            PinnableState = !PinnableState;
+            
+        }
+
+        private void MapClicked(object Sender, Position e)
+        {
+            if (PinnableState)
+            {
+                PageUp.TranslateTo(0, 0, 500, Easing.SinIn);
+                PinnableState = !PinnableState;
+            } else
+            {
+                PageUp.TranslateTo(0, -MainAbsoluteLatout.Height, 500, Easing.SinIn);
+            }
+        }
+        private void Button_CancelAddingPin_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_ConfirmAddingPin_Clicked(object sender, EventArgs e)
         {
 
         }

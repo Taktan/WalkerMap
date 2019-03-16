@@ -3,14 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:WalkerMaps"
              x:Class="WalkerMaps.MainPage">
-    <AbsoluteLayout >
+    <AbsoluteLayout x:Name="MainAbsoluteLatout">
         <local:CustomMap x:Name="customMap" MapType="Street" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1"/>
-        <ImageButton Source="drawable/button_add.png"
+        <ImageButton x:Name="ButtonAddPin"
+                     Clicked="ButtonAddPin_Clicked"
+                     Source="drawable/button_add.png"
                      HorizontalOptions="Center"
                      VerticalOptions="CenterAndExpand"
                      BackgroundColor="Transparent"
                      AbsoluteLayout.LayoutFlags="PositionProportional"
                      AbsoluteLayout.LayoutBounds="0.1,0.95,100,100"/>
+        <StackLayout x:Name="PageUp" AbsoluteLayout.LayoutBounds="0.5,0.4,0.9,0.5" AbsoluteLayout.LayoutFlags="All"
+                     Orientation="Vertical" VerticalOptions="FillAndExpand" Spacing="15">
+            <Frame VerticalOptions="FillAndExpand" BackgroundColor="White" HasShadow="True">
+                <StackLayout>
+                    <Label Text="Выберите тип объекта:"/>
+                    <Picker x:Name="PickerPinType" HeightRequest="50" VerticalOptions="Start">
+                        <Picker.Items>
+                            <x:String>Лавочка</x:String>
+                            <x:String>Урна</x:String>
+                            <x:String>Точка Wi-Fi</x:String>
+                            <x:String>Питьевая вода</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Text="Добавьте описание: "/>
+                    <Editor HeightRequest="100" VerticalOptions="Start" x:Name="EditorPinDesc"/>
+                    <Button Text="Отменить" VerticalOptions="End" HorizontalOptions="End" Clicked="Button_CancelAddingPin_Clicked"/>
+                    <Button Text="Добавить маркер" VerticalOptions="End" HorizontalOptions="Start" Clicked="Button_ConfirmAddingPin_Clicked"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
     </AbsoluteLayout>
     
 
