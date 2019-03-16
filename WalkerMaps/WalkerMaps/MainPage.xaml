@@ -3,9 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:WalkerMaps"
              x:Class="WalkerMaps.MainPage">
-
-    <StackLayout>
-        <local:CustomMap x:Name="customMap" MapType="Street" />
-    </StackLayout>
+    <AbsoluteLayout >
+        <local:CustomMap x:Name="customMap" MapType="Street" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1"/>
+        <ImageButton Source="drawable/button_add.png"
+                     HorizontalOptions="Center"
+                     VerticalOptions="CenterAndExpand"
+                     BackgroundColor="Transparent"
+                     AbsoluteLayout.LayoutFlags="PositionProportional"
+                     AbsoluteLayout.LayoutBounds="0.1,0.95,100,100"/>
+    </AbsoluteLayout>
+    
 
 </ContentPage>

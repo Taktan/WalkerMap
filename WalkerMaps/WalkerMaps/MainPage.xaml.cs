@@ -144,5 +144,10 @@ namespace WalkerMaps
                 }
             }
         }
+
+        private void Button_Released(object sender, EventArgs e)
+        {
+
+        }
     }
 }
