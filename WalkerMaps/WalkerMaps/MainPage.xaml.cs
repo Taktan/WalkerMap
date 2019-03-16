@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -63,7 +64,7 @@ namespace WalkerMaps
                 }
 
                 NpgsqlCommand command = connection.CreateCommand();
-                command.CommandText = string.Format("SELECT name, ST_AsEWKT(point), type, rating, ST_DistanceSphere(point, ST_GeomFromEWKT('SRID=4326;POINT({0} {1})')) AS dist FROM markers WHERE ST_DWithin(point, ST_GeomFromEWKT('SRID=4326;POINT({0} {1})'), 30000, true); ", lng, lat);
+                command.CommandText = string.Format("SELECT name, ST_AsEWKT(point), type, rating::text, ST_DistanceSphere(point, ST_GeomFromEWKT('SRID=4326;POINT({0} {1})')) AS dist FROM markers WHERE ST_DWithin(point, ST_GeomFromEWKT('SRID=4326;POINT({0} {1})'), 30000, true); ", lng, lat);
                 try
                 {
                     NpgsqlDataReader reader = command.ExecuteReader();
@@ -77,16 +78,31 @@ namespace WalkerMaps
                         double Lat_ = Convert.ToDouble(coor[1], new NumberFormatInfo());
                         double Lng_ = Convert.ToDouble(coor[0], new NumberFormatInfo());
                         int objectType = -1;
-                        int.TryParse(reader[1].ToString(), out objectType);
-                        double objectRating = 0;
-                        double.TryParse(reader[3].ToString(), out objectRating);
+                        int.TryParse(reader[2].ToString(), out objectType);
+                        //int[] MASRAT = Convert.ToInt32((reader[3].ToString().Split(',')));
+                        List<int> masrat = new List<int>();
+                        string inputRate = reader[3].ToString();
+                        char[] charsToTrim = { '{', '}'};
+                        string[] inputRateMas = inputRate.Trim(charsToTrim).Split(',');
+                        int[] ratingnums = inputRateMas.Select(s => int.Parse(s)).ToArray();
+                        double sum = 0;
+                        foreach (int num in ratingnums)
+                        {
+                            sum += num;
+                        }
+                        int objectRating = Convert.ToInt32((sum / ratingnums.Length) * 100);
 
+                        //int col = -1;
+                        //foreach (var val in inputRateMas) {
+                        //    col++;
+                        //    masrat[col] = Convert.ToInt32(val);
+                        //};
                         var pin = new CustomPin
                         {
                             Type = PinType.Place,
                             Position = new Position(Lat_, Lng_),
                             Label = reader[0].ToString(),
-                            Address = "Рейтинг: " + objectRating,
+                            Address = "Рейтинг: " + objectRating + " из 100",
                             Id = "object",
                             ObjectType = objectType,
                             ObjectRating = objectRating,

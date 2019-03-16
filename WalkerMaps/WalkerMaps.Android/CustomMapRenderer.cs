@@ -68,10 +68,28 @@ namespace WalkerMaps.Droid
         protected override MarkerOptions CreateMarker(Pin pin)
         {
             var marker = new MarkerOptions();
+            var custom = GetCustomPinByPin(pin);
+            if (custom.ObjectType == 0)
+            {
+                marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.locbre));
+            }
+            if (custom.ObjectType == 1)
+            {
+                marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.locurn));
+            }
+            if (custom.ObjectType == 2)
+            {
+                marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.loccha));
+            }
+            if (custom.ObjectType == 3)
+            {
+                marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.locwat));
+            }
             marker.SetPosition(new LatLng(pin.Position.Latitude, pin.Position.Longitude));
             marker.SetTitle(pin.Label);
             marker.SetSnippet(pin.Address);
-            marker.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin));
+
+            
             return marker;
         }
 
@@ -144,6 +162,18 @@ namespace WalkerMaps.Droid
                 if (pin.Position == position)
                 {
                     return pin;
+                }
+            }
+            return null;
+        }
+        CustomPin GetCustomPinByPin(Pin pin)
+        {
+            var position = new Position(pin.Position.Latitude, pin.Position.Longitude);
+            foreach (var cust in customPins)
+            {
+                if (cust.Position == position)
+                {
+                    return cust;
                 }
             }
             return null;

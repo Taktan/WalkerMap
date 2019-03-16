@@ -22,7 +22,7 @@
                         <Picker.Items>
                             <x:String>Лавочка</x:String>
                             <x:String>Урна</x:String>
-                            <x:String>Точка Wi-Fi</x:String>
+                            <x:String>Зарядка для смартфона</x:String>
                             <x:String>Питьевая вода</x:String>
                         </Picker.Items>
                     </Picker>
