@@ -25,11 +25,29 @@ namespace WalkerMaps
 
         private void BuildMap()
         {
-
+            customMap.CustomPins = new List<CustomPin>();
+            customMap.CameraChanged += CameraChanged;
         }
 
-        async private void LoadPinsFromDataBase()
+        private void CameraChanged(object Sender, EventArgs e)
         {
+            if (customMap.VisibleRegion.Radius.Kilometers < 25)
+            {
+                Debug.WriteLine(customMap.CustomPins.Count);
+                Debug.WriteLine(customMap.CustomPins.Count);
+                Debug.WriteLine(customMap.CustomPins.Count);
+                Debug.WriteLine(customMap.CustomPins.Count);
+                Debug.WriteLine(customMap.CustomPins.Count);
+
+                LoadPinsFromDataBase(customMap.VisibleRegion.Center.Latitude, customMap.VisibleRegion.Center.Longitude);
+            }
+        }
+
+        async private void LoadPinsFromDataBase(double Lat, double Lng)
+        {
+            string lat = Lat.ToString("0,0.00", new CultureInfo("en-US", false));
+            string lng = Lng.ToString("0,0.00", new CultureInfo("en-US", false));
+
             await Task.Run(() =>
             {
                 NpgsqlConnection connection = new NpgsqlConnection();
@@ -45,19 +63,21 @@ namespace WalkerMaps
                 }
 
                 NpgsqlCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM markers";
+                command.CommandText = string.Format("SELECT name, ST_AsEWKT(point), type, ST_DistanceSphere(point, ST_GeomFromEWKT('SRID=4326;POINT({0} {1})')) AS dist FROM markers WHERE ST_DWithin(point, ST_GeomFromEWKT('SRID=4326;POINT({0} {1})'), 30000, true); ", lng, lat);
                 try
                 {
                     NpgsqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        string response = reader[9].ToString();
+                        string response = reader[1].ToString();
                         response = response.Remove(0, response.IndexOf('(') + 1);
                         response = response.Remove(response.IndexOf(')'));
                         string[] coor = response.Split(' ');
                         double Lat_ = Convert.ToDouble(coor[1], new NumberFormatInfo());
                         double Lng_ = Convert.ToDouble(coor[0], new NumberFormatInfo());
+                        int objectType = -1;
+                        int.TryParse(reader[1].ToString(), out objectType);
 
                         var pin = new CustomPin
                         {
@@ -65,15 +85,28 @@ namespace WalkerMaps
                             Position = new Position(Lat_, Lng_),
                             Label = reader[0].ToString(),
                             Address = "Адрес",
-                            Id = "Xamarin",
+                            Id = "object",
+                            ObjectType = objectType,
                             Url = ""
                         };
 
-                        MainThread.BeginInvokeOnMainThread(() =>
+                        bool IsPinSet = false;
+
+                        foreach (Pin curpin in customMap.CustomPins)
                         {
-                            customMap.CustomPins.Add(pin);
-                            customMap.Pins.Add(pin);
-                        });
+                            if (curpin.Position == pin.Position)
+                            {
+                                IsPinSet = true;
+                            }
+                        }
+                        if (!IsPinSet)
+                        {
+                            MainThread.BeginInvokeOnMainThread(() =>
+                            {
+                                customMap.CustomPins.Add(pin);
+                                customMap.Pins.Add(pin);                              
+                            });
+                        }
                     }
 
                     connection.Close();
@@ -85,10 +118,10 @@ namespace WalkerMaps
             });
         }
         
-        async private void InsertPinToDataBase()
-        {
+        //async private void InsertPinToDataBase()
+        //{
 
-        }
+        //}
 
 
         async protected override void OnAppearing()
