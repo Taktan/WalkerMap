@@ -118,10 +118,60 @@ namespace WalkerMaps
             });
         }
         
-        //async private void InsertPinToDataBase()
-        //{
+        async private void InsertPinToDataBase(string name, int type, string desc)
+        {
+            await Task.Run(() =>
+            {
+                string lat = MapClickedPos.Value.Latitude.ToString("0,0.00", new CultureInfo("en-US", false));
+                string lng = MapClickedPos.Value.Longitude.ToString("0,0.00", new CultureInfo("en-US", false));
 
-        //}
+                NpgsqlConnection connection = new NpgsqlConnection();
+                string ConnectionString = "Server=walkermap.postgres.database.azure.com; Port=5432; User Id=sotyrdnik@walkermap; Password=BatyaVoronHohol1;Database = map_db";
+                try
+                {
+                    connection = new NpgsqlConnection(ConnectionString);
+                    connection.Open();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message.ToString());
+                }
+
+                NpgsqlCommand command = connection.CreateCommand();
+                command.CommandText = string.Format("INSERT INTO markers (point, name, type, date_create, description) VALUES (ST_GeomFromEWKT('SRID=4326;POINT({1} {0})'),'{2}', {3},now(),'{4}');", lat, lng, name, type, desc);
+                try
+                {
+                    NpgsqlDataReader reader = command.ExecuteReader();
+
+                    reader.Read();
+
+                    var pin = new CustomPin
+                    {
+                        Type = PinType.Place,
+                        Position = new Position(MapClickedPos.Value.Latitude, MapClickedPos.Value.Longitude),
+                        Label = reader[0].ToString(),
+                        Address = "Адрес",
+                        Id = "object",
+                        ObjectType = type,
+                        Url = ""
+                    };
+
+                    {
+                        MainThread.BeginInvokeOnMainThread(() =>
+                        {
+                            customMap.CustomPins.Add(pin);
+                            customMap.Pins.Add(pin);
+                        });
+                    }
+
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message.ToString());
+                }
+            });
+        }
 
         async protected override void OnAppearing()
         {
@@ -181,28 +231,39 @@ namespace WalkerMaps
         private void ButtonAddPin_Clicked(object sender, EventArgs e)
         {
             PinnableState = !PinnableState;
-            
         }
 
+        Position? MapClickedPos = null;
         private void MapClicked(object Sender, Position e)
+        {
+            MapClickedPos = e;
+            AddPinForm_ChangeState();
+        }
+        private void Button_CancelAddingPin_Clicked(object sender, EventArgs e)
+        {
+            AddPinForm_ChangeState();
+        }
+
+        private void Button_ConfirmAddingPin_Clicked(object sender, EventArgs e)
+        {
+            if (MapClickedPos.HasValue)
+            {
+                InsertPinToDataBase(PickerPinType.SelectedItem.ToString(), PickerPinType.SelectedIndex, EditorPinDesc.Text);
+                AddPinForm_ChangeState();
+            }
+        }
+
+        private void AddPinForm_ChangeState()
         {
             if (PinnableState)
             {
                 PageUp.TranslateTo(0, 0, 500, Easing.SinIn);
                 PinnableState = !PinnableState;
-            } else
+            }
+            else
             {
                 PageUp.TranslateTo(0, -MainAbsoluteLatout.Height, 500, Easing.SinIn);
             }
-        }
-        private void Button_CancelAddingPin_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button_ConfirmAddingPin_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }
