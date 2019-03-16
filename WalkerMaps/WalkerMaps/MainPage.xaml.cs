@@ -121,6 +121,39 @@ namespace WalkerMaps
             });
         }
         
+        async private void UpdatePinRatingOnDataBase(int rate, int id)
+        {
+            await Task.Run(() =>
+            {
+                NpgsqlConnection connection = new NpgsqlConnection();
+                string ConnectionString = "Server=walkermap.postgres.database.azure.com; Port=5432; User Id=sotyrdnik@walkermap; Password=BatyaVoronHohol1;Database = map_db";
+                try
+                {
+                    connection = new NpgsqlConnection(ConnectionString);
+                    connection.Open();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message.ToString());
+                }
+
+                NpgsqlCommand command = connection.CreateCommand();
+                command.CommandText = string.Format("UPDATE markers SET rating = rating || {0}::int WHERE id = {1};", rate, id);
+                try
+                {
+                    NpgsqlDataReader reader = command.ExecuteReader();
+
+                    reader.Read();
+
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message.ToString());
+                }
+            });
+        }
+
         async private void InsertPinToDataBase(string name, int type, string desc)
         {
             await Task.Run(() =>
