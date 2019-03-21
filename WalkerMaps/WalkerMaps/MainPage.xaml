@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:WalkerMaps"
              x:Class="WalkerMaps.MainPage">
     <AbsoluteLayout x:Name="MainAbsoluteLatout">
-        <local:CustomMap x:Name="customMap" MapType="Street" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1"/>
+        <local:CustomMap x:Name="customMap" MapType="Hybrid" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1"/>
         <ImageButton x:Name="ButtonAddPin"
                      Clicked="ButtonAddPin_Clicked"
                      Source="drawable/button_add.png"

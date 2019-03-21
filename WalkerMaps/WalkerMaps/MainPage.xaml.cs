@@ -77,32 +77,39 @@ namespace WalkerMaps
                         string[] coor = response.Split(' ');
                         double Lat_ = Convert.ToDouble(coor[1], new NumberFormatInfo());
                         double Lng_ = Convert.ToDouble(coor[0], new NumberFormatInfo());
+
                         int objectType = -1;
                         int.TryParse(reader[2].ToString(), out objectType);
-                        //int[] MASRAT = Convert.ToInt32((reader[3].ToString().Split(',')));
-                        List<int> masrat = new List<int>();
-                        string inputRate = reader[3].ToString();
-                        char[] charsToTrim = { '{', '}'};
-                        string[] inputRateMas = inputRate.Trim(charsToTrim).Split(',');
-                        int[] ratingnums = inputRateMas.Select(s => int.Parse(s)).ToArray();
-                        double sum = 0;
-                        foreach (int num in ratingnums)
-                        {
-                            sum += num;
-                        }
-                        int objectRating = Convert.ToInt32((sum / ratingnums.Length) * 100);
 
-                        //int col = -1;
-                        //foreach (var val in inputRateMas) {
-                        //    col++;
-                        //    masrat[col] = Convert.ToInt32(val);
-                        //};
+                        List<int> masrat = new List<int>();
+                        int objectRating;
+                        string objectRatingMsg;
+                        if (reader[3].ToString() != "")
+                        {
+                            string inputRate = reader[3].ToString();
+                            char[] charsToTrim = { '{', '}' };
+                            string[] inputRateMas = inputRate.Trim(charsToTrim).Split(',');
+                            int[] ratingnums = inputRateMas.Select(s => int.Parse(s)).ToArray();
+                            double sum = 0;
+                            foreach (int num in ratingnums)
+                            {
+                                sum += num;
+                            }
+                            objectRating = Convert.ToInt32((sum / ratingnums.Length) * 100);
+                            objectRatingMsg = "Рейтинг: " + objectRating + " из 100";
+                        } else
+                        {
+                            objectRating = 0;
+                            objectRatingMsg = "Без рейтинга";
+                        }
+                        
+
                         var pin = new CustomPin
                         {
                             Type = PinType.Place,
                             Position = new Position(Lat_, Lng_),
                             Label = reader[0].ToString(),
-                            Address = "Рейтинг: " + objectRating + " из 100",
+                            Address = objectRatingMsg,
                             Id = "object",
                             ObjectType = objectType,
                             ObjectRating = objectRating,
@@ -170,12 +177,12 @@ namespace WalkerMaps
             });
         }
 
-        async private void InsertPinToDataBase(string name, int type, string desc)
+        async private void InsertPinToDataBase(double Lat, double Lng, string name, int type, string desc)
         {
             await Task.Run(() =>
             {
-                string lat = MapClickedPos.Value.Latitude.ToString("0,0.00", new CultureInfo("en-US", false));
-                string lng = MapClickedPos.Value.Longitude.ToString("0,0.00", new CultureInfo("en-US", false));
+                string lat = Lat.ToString("0,0.######", new CultureInfo("en-US", false));
+                string lng = Lng.ToString("0,0.######", new CultureInfo("en-US", false));
 
                 NpgsqlConnection connection = new NpgsqlConnection();
                 string ConnectionString = "Server=walkermap.postgres.database.azure.com; Port=5432; User Id=sotyrdnik@walkermap; Password=BatyaVoronHohol1;Database = map_db";
@@ -200,7 +207,7 @@ namespace WalkerMaps
                     var pin = new CustomPin
                     {
                         Type = PinType.Place,
-                        Position = new Position(MapClickedPos.Value.Latitude, MapClickedPos.Value.Longitude),
+                        Position = new Position(Lat, Lng),
                         Label = reader[0].ToString(),
                         Address = "Адрес",
                         Id = "object",
@@ -300,7 +307,9 @@ namespace WalkerMaps
         {
             if (MapClickedPos.HasValue)
             {
-                InsertPinToDataBase(PickerPinType.SelectedItem.ToString(), PickerPinType.SelectedIndex, EditorPinDesc.Text);
+                double Lat = MapClickedPos.Value.Latitude;
+                double Lng = MapClickedPos.Value.Longitude;
+                InsertPinToDataBase(Lat, Lng, PickerPinType.SelectedItem.ToString(), PickerPinType.SelectedIndex, EditorPinDesc.Text);
                 AddPinForm_ChangeState();
             }
         }
